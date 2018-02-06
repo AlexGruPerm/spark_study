@@ -17,6 +17,7 @@ import org.apache.parquet.hadoop.ParquetWriter;
 import org.apache.parquet.hadoop.example.ExampleParquetWriter;
 import org.apache.parquet.schema.MessageType;
 import org.apache.parquet.schema.Types;
+import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -36,37 +37,41 @@ public class App {
 		logger.info("info message");
 		logger.debug("debug message");
 		
+		SparkConf conf = new SparkConf();
+		conf.set("spark.master", "spark://192.168.1.8:7077");
+
 	       SparkSession spark = SparkSession
 	    	    	.builder()
 	    		    .appName("Java Spark SQL") 
-	    		    .config("spark.master", "spark://192.168.1.8:7077")
+	    		    .config(conf) 
 	    		    .getOrCreate();
 	       
+
 	       logger.debug("CONF:"+spark.conf().getAll().toString()); 
-		/*
-		 * 2018-02-06 02:03:27 4188 [main] DEBUG gdev.App -
-		 * CONF:Map(spark.driver.host -> 192.168.1.5, 
-		 * spark.driver.port ->
-		 * 59749, spark.app.name -> Java Spark SQL, 
-		 * spark.executor.id -> driver,
-		 * spark.master -> spark://192.168.1.8:7077, 
-		 * spark.app.id ->
-		 * app-20180205160323-0017)
-		 */
 	       
+	       Dataset<Row> df = spark.read().json("/root/data/people.json");
+
+	       df.show();
 	       
-	       Dataset<Row> usersDF = spark.read().load("/root/data/users.parquet"); 
+	       String prq_full_filename = "/root/data/names.parquet";
 	       
-	        
-		/*
+	       df.select("name").write().format("parquet").save(prq_full_filename);
+	       
+	     	Dataset<Row> ds = spark.read().load(prq_full_filename);
+    	    ds.show();
+    	    ds.printSchema();
+	       
+	     
+	       /*
 		try{
 	       MessageType DS_FILE_SCHEMA = Types.buildMessage()
 		  		      .required(BINARY).as(UTF8).named("name")
 		  		      .named("dataset");
+	       
 	       //example: https://www.programcreek.com/java-api-examples/index.php?api=parquet.hadoop.ParquetWriter
 	        SimpleGroupFactory GROUP_FACTORY_DS = new SimpleGroupFactory(DS_FILE_SCHEMA);
- 
-	  	    File fl_ds = new File("/root/data");
+
+	  	    File fl_ds = new File(prq_full_filename);
 	  	    logger.info("Recreate parquet file for app_loaded events: "+fl_ds.getAbsolutePath());
 	  	    if (fl_ds.exists()==true) {
 		      Preconditions.checkArgument(fl_ds.delete(), "Could not remove parquet file "+fl_ds.getAbsolutePath());
@@ -90,7 +95,13 @@ public class App {
 		     catch (IOException e) {
 			  logger.error(e.fillInStackTrace());
 			 }
+	*/	
+/*
+	 	Dataset<Row> df_appl = spark.read().load(prq_full_filename);
+    	df_appl.show();
+    	df_appl.printSchema();
 		*/
+    	
 		        spark.close();
 		}
 
