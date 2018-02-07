@@ -1,15 +1,20 @@
 package gdev;
 
+/*
 import static org.apache.parquet.schema.OriginalType.TIMESTAMP_MILLIS;
 import static org.apache.parquet.schema.OriginalType.UTF8;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.BINARY;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.INT64;
+*/
 
-import java.io.File;
-import java.io.IOException;
+//import java.io.File;
+//import java.io.IOException;
 
-import org.apache.hadoop.fs.Path;
+//import org.apache.hadoop.fs.Path;
+
 import org.apache.log4j.Logger;
+ 
+/*
 import org.apache.parquet.Preconditions;
 import org.apache.parquet.example.data.Group;
 import org.apache.parquet.example.data.simple.SimpleGroupFactory;
@@ -17,17 +22,18 @@ import org.apache.parquet.hadoop.ParquetWriter;
 import org.apache.parquet.hadoop.example.ExampleParquetWriter;
 import org.apache.parquet.schema.MessageType;
 import org.apache.parquet.schema.Types;
+*/ 
 import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaSparkContext;
+//import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
-import org.apache.spark.sql.SQLContext;
+//import org.apache.spark.sql.SQLContext;
 //import org.apache.spark.sql.Dataset;
 //import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SparkSession;
 
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonNode;
+//import com.fasterxml.jackson.core.JsonToken;
+//import com.fasterxml.jackson.databind.JsonNode;
 
 public class App {
 
@@ -37,31 +43,61 @@ public class App {
 		logger.info("info message");
 		logger.debug("debug message");
 		
+		//String jsonPath = "/root/data/people.json";
+		String jsonPath = "C:\\spark_data\\people.json";
+		
+		//String parquetPath = "/root/data/names.parquet";
+		//String parquetPath = "C:\\spark_data\\names.parquet";
+		
+		//String sparkMaster = "spark://192.168.1.8:7077"; 
+		
+		//String sparkMaster = "spark://192.168.1.5:7077";
+		String sparkMaster = "local[*]";
+		  
+		//=======================================================
+		
 		SparkConf conf = new SparkConf();
-		conf.set("spark.master", "spark://192.168.1.8:7077");
+		conf.set("spark.master",sparkMaster);
+		conf.set("spark.sql.crossJoin.enabled", "true");
+		//conf.setJars(new String[]{"C:\\spark_data\\gdev.jar"});
+
 
 	       SparkSession spark = SparkSession
 	    	    	.builder()
 	    		    .appName("Java Spark SQL") 
-	    		    .config(conf) 
+	    		    .config(conf)
 	    		    .getOrCreate();
-	       
+
+		
+		
+/* GOOD
+	       SparkSession spark = SparkSession
+	    	       	.builder()
+	       	        .appName("Java Spark SQL") 
+	       	        .config("spark.master", "local[*]")
+		            .config("spark.sql.crossJoin.enabled", "true")
+		            .getOrCreate();
+*/
 
 	       logger.debug("CONF:"+spark.conf().getAll().toString()); 
-	       
-	       Dataset<Row> df = spark.read().json("/root/data/people.json");
+	
+	       Dataset<Row> df = spark.read().option("header","false").json(jsonPath);
+
+	       df.printSchema();
 
 	       df.show();
+	
 	       
-	       String prq_full_filename = "/root/data/names.parquet";
+	       /*
+	       String prq_full_filename = parquetPath;
 	       
 	       df.select("name").write().format("parquet").save(prq_full_filename);
 	       
 	     	Dataset<Row> ds = spark.read().load(prq_full_filename);
     	    ds.show();
     	    ds.printSchema();
-	       
-	     
+	       */
+	      
 	       /*
 		try{
 	       MessageType DS_FILE_SCHEMA = Types.buildMessage()
