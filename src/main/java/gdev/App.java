@@ -127,12 +127,13 @@ public class App {
 -----------------------------------------------------------------------------------------------
 */
     	   Dataset<Row> sql_ds = spark.read().load(parquetPath);
+    	   
     	   sql_ds.createOrReplaceTempView("vusr");
 
    		   Dataset<Row> sql_ds_res = spark.sql("     SELECT substring(name,0,3) as name, "
    		   		                                   + "      count(*) as grp_by_key "
    		   		                                   + " FROM vusr "
-   		   		                                   + " group by substring(name,0,3) "
+   		   		                                   + " group by substring(name,0,3) having count(*)>3550"
    		   		                                   + " order by 2 desc");
    		   sql_ds_res.show();
 
