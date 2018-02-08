@@ -94,21 +94,24 @@ public class App {
 	    		    .config(conf)
 	    		    .getOrCreate();
 
-	       logger.debug("CONF:"+spark.conf().getAll().toString()); 
+/*
+-----------------------------------------------------------------------------------------------
+	       logger.debug("CONF:"+spark.conf().getAll()); 
 
+	    String newLine = System.getProperty("line.separator");
 	    FileWriter f0;
 		try {
 			f0 = new FileWriter("C:\\spark_data\\people3.json");
-		       for(int i=0; i < 1000000; i++)
+		       for(int i=0; i < 100000000; i++)
 		       {
-				f0.write("{\"name\":\""+RandomStringUtils.randomAlphanumeric(10).toUpperCase()+"\"}");
+				f0.write("{\"name\":\""+RandomStringUtils.randomAlphanumeric(10).toUpperCase()+"\"}"+newLine);
 		       }
 		       f0.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	      // String newLine = System.getProperty("line.separator");
+	      
 
 	       
 	       Dataset<Row> df = spark.read().option("header","false").json(jsonPath);
@@ -121,19 +124,23 @@ public class App {
 	       
     	   ds.show();
     	   ds.printSchema();
-
+-----------------------------------------------------------------------------------------------
+*/
     	   Dataset<Row> sql_ds = spark.read().load(parquetPath);
     	   sql_ds.createOrReplaceTempView("vusr");
 
-   		   Dataset<Row> sql_ds_res = spark.sql("SELECT name, count(*) as grp_by_key FROM vusr group by name order by 1 desc");
-   		   sql_ds_res.show(); 
+   		   Dataset<Row> sql_ds_res = spark.sql("     SELECT substring(name,0,3) as name, "
+   		   		                                   + "      count(*) as grp_by_key "
+   		   		                                   + " FROM vusr "
+   		   		                                   + " group by substring(name,0,3) "
+   		   		                                   + " order by 2 desc");
+   		   sql_ds_res.show();
 
-
-   	
+   		    
    		   /*
    		   Dataset<Row> sql_ds_cnt = spark.sql("SELECT count(*) as cnt_rows_parquet FROM vusr");
    		   sql_ds_cnt.show();   
-	       */
+   		   */
 	      
 	       /*
 		try{
