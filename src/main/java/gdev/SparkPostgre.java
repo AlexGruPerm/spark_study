@@ -11,8 +11,6 @@ public class SparkPostgre {
 	
 	final static Logger logger = Logger.getLogger(SparkPostgre.class);
 
-
-
 	public static void main(String[] args) {
 	
 		String sparkMaster = "spark://169.254.16.5:7077";//"local[*]"
@@ -22,42 +20,25 @@ public class SparkPostgre {
 		conf.set("spark.sql.crossJoin.enabled", "true");
         //spark.sql.inMemoryColumnarStorage.compressed	true
 		
-		String tbl_name = "sl_report_status";
-		/*
-		sl_report
-		sl_report_data
-		sl_report_status
-		*/
+		String p_path_to_parquet_dir = "C:\\spark_data";
+		String tbl_name              = "sl_report_p4_data";
+		
+		PostgresIntoParquet pp = new PostgresIntoParquet();
 		
 	       SparkSession spark = SparkSession
 	    	    	.builder()
 	    		    .appName("Java Spark SQL") 
 	    		    .config(conf)
+	    		    .enableHiveSupport()
 	    		    .getOrCreate();	
-	       
-	       
-	       Dataset<Row> jdbcDF = spark.read()
-	    		   .format("jdbc")
-	    		   .option("url","jdbc:postgresql://10.242.5.62:5432/db_ris_mkrpk" )
-	    		   .option("dbtable", "prm_salary."+tbl_name)
-	    		   .option("user", "prm_salary")
-	    		   .option("password", "prm_salary")
-	    		   .option("driver", "org.postgresql.Driver")
-	    		   .load();
+		
+		//pp.load_table_into_pqrquet(tbl_name, p_path_to_parquet_dir, spark);
+	    pp.execute_sql_query(spark);
+	    //pp.show_spark_meta(spark);
 
-	       jdbcDF.printSchema();
-	       jdbcDF.show();   
+//	не таблица, а одно полей. jdbcDF.select("code").write().mode(SaveMode.Overwrite).parquet(parquetPath);
 
-	       String parquetPath = "C:\\spark_data\\"+tbl_name+".parquet";	 
-	       
-	       jdbcDF.write().mode(SaveMode.Overwrite).parquet(parquetPath); 
-//	       jdbcDF.select("code").write().mode(SaveMode.Overwrite).parquet(parquetPath);
-
-	       Dataset<Row> ds = spark.read().load(parquetPath);
-    	   ds.show();
-    	   ds.printSchema();
-    	   
-	       spark.close();
+	     spark.close();
 
 	}
 

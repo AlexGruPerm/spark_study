@@ -90,7 +90,7 @@ public class App {
 
 	       SparkSession spark = SparkSession
 	    	    	.builder()
-	    		    .appName("Java Spark SQL") 
+	    		    .appName("Java Spark SQL")
 	    		    .config(conf)
 	    		    .getOrCreate();
 
