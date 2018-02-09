@@ -1,15 +1,23 @@
 package gdev;
 
+import java.io.File;
+
 import org.apache.log4j.Logger;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.SaveMode;
 import org.apache.spark.sql.SparkSession;
 
-public class PostgresIntoParquet { 
+public class PostgresIntoParquet {  
 	
 	final static Logger logger = Logger.getLogger(PostgresIntoParquet.class);
 	
+	String prq_path;
+	
+	PostgresIntoParquet(String prq_path){
+		this.prq_path = prq_path;
+	}
+	 
 	void load_table_into_pqrquet(String       p_table_name,
 			                     String       p_path_to_parquet_dir,
 			                     SparkSession spark){
@@ -25,9 +33,9 @@ public class PostgresIntoParquet {
 
 	       jdbcDF.printSchema();
 	       jdbcDF.show();   
-	       jdbcDF.write().mode(SaveMode.Overwrite).parquet(p_path_to_parquet_dir+'\\'+p_table_name+".parquet"); 
+	       jdbcDF.write().mode(SaveMode.Overwrite).parquet(this.prq_path+File.separator+p_table_name+".parquet"); 
 	       
-	       Dataset<Row> ds = spark.read().load(p_path_to_parquet_dir+'\\'+p_table_name+".parquet");
+	       Dataset<Row> ds = spark.read().load(this.prq_path+File.separator+p_table_name+".parquet");
     	   ds.show();
     	   ds.printSchema();
     	    
@@ -35,10 +43,10 @@ public class PostgresIntoParquet {
 	
 	void execute_sql_query(SparkSession spark){
 
- 	    Dataset<Row> sql_sr = spark.read().load("C:\\spark_data\\sl_report.parquet");
+ 	    Dataset<Row> sql_sr = spark.read().load(this.prq_path+File.separator+"sl_report.parquet");
  	    sql_sr.createOrReplaceTempView("sr");
  	    
- 	    Dataset<Row> sql_srd = spark.read().load("C:\\spark_data\\sl_report_data.parquet");
+ 	    Dataset<Row> sql_srd = spark.read().load(this.prq_path+File.separator+"sl_report_data.parquet");
  	    sql_srd.createOrReplaceTempView("srd");
 
 		long t1 = System.nanoTime();
@@ -49,6 +57,26 @@ public class PostgresIntoParquet {
 	    		                            + "       srd "
 	    		                            + " where sr.sl_report_id = srd.sl_report_id "
 	    		                            + " group by sl_report_status_type_id");
+
+		sql_res.show();
+		
+	    long t2 = System.nanoTime();
+	    long elapsedTimeInSeconds = (t2 - t1) / 1000000000;
+	    
+	    //sql_res.describe().show();
+		
+	    logger.info(">>> durstion : "+String.valueOf(elapsedTimeInSeconds)+" seconds.");
+	}
+	
+	void execute_sql_query2(SparkSession spark){
+
+ 	    Dataset<Row> sql_sr = spark.read().load(this.prq_path+File.separator+"sl_report_p4_data.parquet");
+ 	    sql_sr.createOrReplaceTempView("srp4");
+
+
+		long t1 = System.nanoTime();
+ 	    
+	    Dataset<Row> sql_res = spark.sql("select count(*) from srp4");
 
 		sql_res.show();
 		
