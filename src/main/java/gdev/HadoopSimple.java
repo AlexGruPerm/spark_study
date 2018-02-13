@@ -21,16 +21,14 @@ public class HadoopSimple {
 	final static Logger logger = Logger.getLogger(HadoopSimple.class);
 	
 	void write_into_hdfs() throws IOException{
-		logger.info("write_into_hdfs !!! "); 
-		
+
 		String hdfsuri = "hdfs://192.168.1.14:8020";
 		String path = "/user/hadoop/";
-	    String fileName = "hello.csv";
+	    String fileName = "hello2.csv";
 	    String fileContent = "hello;world";
 		
 		Configuration conf = new Configuration();
-		//conf.set("dfs.namenode.address", "http://192.168.1.14:8020");
-	
+
 	      // Set FileSystem URI
 	      conf.set("fs.defaultFS", hdfsuri);
 		
@@ -66,7 +64,7 @@ public class HadoopSimple {
 	      FSDataInputStream inputStream = fs.open(hdfsreadpath);
 	      //Classical input stream usage
 	      String out= IOUtils.toString(inputStream, "UTF-8");
-	      logger.info(out);
+	      logger.info("---------- >>> ["+out+"]");
 	      inputStream.close();
 	      fs.close();
 		

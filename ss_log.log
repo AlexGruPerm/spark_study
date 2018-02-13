@@ -727,4 +727,90 @@ The number of live datanodes 0 has reached the minimum number 0. Safe mode will 
  2018-02-14 02:03:17 DEBUG Client:1236 - Stopping client
  2018-02-14 02:03:17 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
  2018-02-14 02:03:17 DEBUG Client:981 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: stopped, remaining connections 0
+ 2018-02-14 02:10:28 INFO  App:13 - info message
+ 2018-02-14 02:10:28 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 02:10:28 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 02:10:28 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 02:10:28 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 02:10:28 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 02:10:28 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 02:10:28 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 02:10:28 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 02:10:28 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 02:10:28 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 02:10:28 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 02:10:28 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 02:10:29 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 02:10:29 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 02:10:29 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 02:10:29 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 02:10:29 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 02:10:29 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 02:10:29 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 02:10:29 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 02:10:29 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 02:10:29 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 02:10:29 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 02:10:29 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 02:10:29 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 02:10:29 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:10:29 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 02:10:29 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 02:10:29 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 02:10:29 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 02:10:29 DEBUG Client:963 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: starting, having connections 1
+ 2018-02-14 02:10:29 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #0
+ 2018-02-14 02:10:29 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #0
+ 2018-02-14 02:10:29 DEBUG ProtobufRpcEngine:253 - Call: getFileInfo took 118ms
+ 2018-02-14 02:10:29 INFO  HadoopSimple:49 - Begin Write file into hdfs
+ 2018-02-14 02:10:29 DEBUG DFSClient:1646 - /user/hadoop/hello2.csv: masked=rw-r--r--
+ 2018-02-14 02:10:29 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #1
+ 2018-02-14 02:10:29 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #1
+ 2018-02-14 02:10:29 DEBUG ProtobufRpcEngine:253 - Call: create took 10ms
+ 2018-02-14 02:10:29 DEBUG DFSClient:1802 - computePacketChunkSize: src=/user/hadoop/hello2.csv, chunkSize=516, chunksPerPacket=127, packetSize=65532
+ 2018-02-14 02:10:29 DEBUG LeaseRenewer:301 - Lease renewer daemon for [DFSClient_NONMAPREDUCE_1439763872_1] with renew id 1 started
+ 2018-02-14 02:10:29 DEBUG DFSClient:1869 - DFSClient writeChunk allocating new packet seqno=0, src=/user/hadoop/hello2.csv, packetSize=65532, chunksPerPacket=127, bytesCurBlock=0
+ 2018-02-14 02:10:29 DEBUG DFSClient:1815 - Queued packet 0
+ 2018-02-14 02:10:29 DEBUG DFSClient:1815 - Queued packet 1
+ 2018-02-14 02:10:29 DEBUG DFSClient:585 - Allocating new block
+ 2018-02-14 02:10:29 DEBUG DFSClient:2133 - Waiting for ack for: 1
+ 2018-02-14 02:10:29 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #2
+ 2018-02-14 02:10:29 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #2
+ 2018-02-14 02:10:29 DEBUG ProtobufRpcEngine:253 - Call: addBlock took 8ms
+ 2018-02-14 02:10:29 DEBUG DFSClient:1390 - pipeline = 192.168.1.15:9866
+ 2018-02-14 02:10:29 DEBUG DFSClient:1390 - pipeline = 192.168.1.16:9866
+ 2018-02-14 02:10:29 DEBUG DFSClient:1601 - Connecting to datanode 192.168.1.15:9866
+ 2018-02-14 02:10:29 DEBUG DFSClient:1610 - Send buf size 131072
+ 2018-02-14 02:10:29 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #3
+ 2018-02-14 02:10:29 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #3
+ 2018-02-14 02:10:29 DEBUG ProtobufRpcEngine:253 - Call: getServerDefaults took 2ms
+ 2018-02-14 02:10:29 DEBUG SaslDataTransferClient:244 - SASL client skipping handshake in unsecured configuration for addr = /192.168.1.15, datanodeId = 192.168.1.15:9866
+ 2018-02-14 02:10:30 DEBUG DFSClient:636 - DataStreamer block BP-87460605-192.168.1.14-1518549085107:blk_1073741851_1027 sending packet packet seqno:0 offsetInBlock:0 lastPacketInBlock:false lastByteOffsetInBlock: 11
+ 2018-02-14 02:10:30 DEBUG DFSClient:875 - DFSClient seqno: 0 status: SUCCESS status: SUCCESS downstreamAckTimeNanos: 2585202 4: "\000\000"
+ 2018-02-14 02:10:30 DEBUG DFSClient:636 - DataStreamer block BP-87460605-192.168.1.14-1518549085107:blk_1073741851_1027 sending packet packet seqno:1 offsetInBlock:11 lastPacketInBlock:true lastByteOffsetInBlock: 11
+ 2018-02-14 02:10:30 DEBUG DFSClient:875 - DFSClient seqno: 1 status: SUCCESS status: SUCCESS downstreamAckTimeNanos: 2380642 4: "\000\000"
+ 2018-02-14 02:10:30 DEBUG DFSClient:509 - Closing old block BP-87460605-192.168.1.14-1518549085107:blk_1073741851_1027
+ 2018-02-14 02:10:30 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #4
+ 2018-02-14 02:10:30 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #4
+ 2018-02-14 02:10:30 DEBUG ProtobufRpcEngine:253 - Call: complete took 26ms
+ 2018-02-14 02:10:30 INFO  HadoopSimple:57 - End Write file into hdfs
+ 2018-02-14 02:10:30 INFO  HadoopSimple:60 - Read file into hdfs
+ 2018-02-14 02:10:30 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #5
+ 2018-02-14 02:10:30 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #5
+ 2018-02-14 02:10:30 DEBUG ProtobufRpcEngine:253 - Call: getBlockLocations took 4ms
+ 2018-02-14 02:10:30 DEBUG DFSClient:277 - newInfo = LocatedBlocks{
+  fileLength=11
+  underConstruction=false
+  blocks=[LocatedBlock{BP-87460605-192.168.1.14-1518549085107:blk_1073741851_1027; getBlockSize()=11; corrupt=false; offset=0; locs=[192.168.1.16:9866, 192.168.1.15:9866]; storageIDs=[DS-1e13ec63-8821-470d-8a85-ccc0478f012e, DS-02547298-0318-4c82-b6b4-584b413658d0]; storageTypes=[DISK, DISK]}]
+  lastLocatedBlock=LocatedBlock{BP-87460605-192.168.1.14-1518549085107:blk_1073741851_1027; getBlockSize()=11; corrupt=false; offset=0; locs=[192.168.1.16:9866, 192.168.1.15:9866]; storageIDs=[DS-1e13ec63-8821-470d-8a85-ccc0478f012e, DS-02547298-0318-4c82-b6b4-584b413658d0]; storageTypes=[DISK, DISK]}
+  isLastBlockComplete=true}
+ 2018-02-14 02:10:30 DEBUG DFSClient:1002 - Connecting to datanode 192.168.1.16:9866
+ 2018-02-14 02:10:30 DEBUG SaslDataTransferClient:244 - SASL client skipping handshake in unsecured configuration for addr = /192.168.1.16, datanodeId = 192.168.1.16:9866
+ 2018-02-14 02:10:30 INFO  HadoopSimple:67 - ---------- >>> [hello;world]
+ 2018-02-14 02:10:30 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:10:30 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:10:30 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:10:30 DEBUG Client:1236 - Stopping client
+ 2018-02-14 02:10:30 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 02:10:30 DEBUG Client:981 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: stopped, remaining connections 0
  
