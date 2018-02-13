@@ -1,0 +1,730 @@
+2018-02-14 00:45:07 INFO  App:11 - info message
+2018-02-14 00:45:07 INFO  HadoopSimple:10 - write_into_hdfs !!! 
+2018-02-14 00:49:54 INFO  App:11 - info message
+2018-02-14 00:56:42 INFO  App:11 - info message
+2018-02-14 00:57:49 INFO  App:13 - info message
+2018-02-14 00:57:49 INFO  HadoopSimple:20 - write_into_hdfs !!! 
+2018-02-14 00:57:49 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2018-02-14 00:59:20 INFO  App:13 - info message
+2018-02-14 00:59:20 INFO  HadoopSimple:20 - write_into_hdfs !!! 
+2018-02-14 00:59:20 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2018-02-14 01:06:25 INFO  App:13 - info message
+ 2018-02-14 01:06:25 INFO  HadoopSimple:22 - write_into_hdfs !!! 
+ 2018-02-14 01:06:25 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(always=false, about=, sampleName=Ops, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:06:25 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(always=false, about=, sampleName=Ops, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:06:25 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(always=false, about=, sampleName=Ops, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:06:25 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:06:25 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:06:25 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:06:25 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:06:25 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:06:25 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:06:25 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:06:25 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:06:25 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:06:25 DEBUG Shell:343 - Failed to detect a valid hadoop home directory
+ java.io.IOException: Hadoop home directory \ does not exist, is not a directory, or is not an absolute path.
+	at org.apache.hadoop.util.Shell.checkHadoopHome(Shell.java:335)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:350)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:116)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:93)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:73)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:293)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:789)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:774)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:647)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2755)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2747)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2613)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:370)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:39)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:06:25 ERROR Shell:396 - Failed to locate the winutils binary in the hadoop binary path
+ java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:116)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:93)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:73)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:293)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:789)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:774)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:647)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2755)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2747)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2613)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:370)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:39)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:06:25 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:06:25 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:06:25 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:06:25 DEBUG UserGroupInformation:192 - Using user: "hdfs" with name hdfs
+ 2018-02-14 01:06:25 DEBUG UserGroupInformation:202 - User entry: "hdfs"
+ 2018-02-14 01:06:25 DEBUG UserGroupInformation:825 - UGI loginUser:hdfs (auth:SIMPLE)
+ 2018-02-14 01:06:26 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:06:26 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:06:26 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:06:26 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:06:26 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:06:26 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:06:26 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@e056f20
+ 2018-02-14 01:06:26 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:06:26 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:06:26 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:06:26 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:06:26 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:06:26 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:06:26 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:06:57 INFO  App:13 - info message
+ 2018-02-14 01:06:57 INFO  HadoopSimple:22 - write_into_hdfs !!! 
+ 2018-02-14 01:06:57 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:06:57 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:06:57 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:06:57 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:06:57 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:06:57 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:06:57 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:06:57 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:06:57 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:06:57 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:06:57 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:06:57 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:06:57 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:06:57 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:06:57 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:06:57 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:06:57 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:06:57 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:06:57 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:06:57 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:06:57 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:06:57 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:06:57 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:06:57 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:06:58 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 01:06:58 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:06:58 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:06:58 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:06:58 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:06:58 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:06:58 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:06:58 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:07:48 INFO  App:13 - info message
+ 2018-02-14 01:07:48 INFO  HadoopSimple:22 - write_into_hdfs !!! 
+ 2018-02-14 01:07:49 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(sampleName=Ops, always=false, about=, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:07:49 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(sampleName=Ops, always=false, about=, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:07:49 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(sampleName=Ops, always=false, about=, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:07:49 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:07:49 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:07:49 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:07:49 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:07:49 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:07:49 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:07:49 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:07:49 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:07:49 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:07:49 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:07:49 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:07:49 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:07:49 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:07:49 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:07:49 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:07:49 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:07:49 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:07:49 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:07:49 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:07:49 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:07:49 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:07:49 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 01:07:49 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:07:49 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:07:49 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:07:49 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 01:07:49 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 01:07:55 DEBUG Client:1177 - closing ipc connection to 192.168.1.14/192.168.1.14:8020: Connection refused: no further information
+ java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:530)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:494)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:609)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:707)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:370)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1523)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1440)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1401)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy9.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:752)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy10.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:1977)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1118)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystem.exists(FileSystem.java:1400)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:43)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:07:55 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 01:07:55 DEBUG App:35 - java.net.ConnectException: Call From gdev-pk/192.168.1.5 to 192.168.1.14:8020 failed on connection exception: java.net.ConnectException: Connection refused: no further information; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+ 2018-02-14 01:07:55 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:07:55 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:07:55 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:07:55 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:10:00 INFO  App:13 - info message
+ 2018-02-14 01:10:00 INFO  HadoopSimple:24 - write_into_hdfs !!! 
+ 2018-02-14 01:10:01 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:10:01 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:10:01 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:10:01 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:10:01 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:10:01 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:10:01 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:10:01 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:10:01 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:10:01 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:10:01 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:10:01 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:10:01 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:10:01 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:10:01 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:10:01 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:10:01 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:10:01 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:10:01 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:10:01 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:10:01 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:10:01 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:10:01 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:10:01 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:10:01 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 01:10:01 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:10:01 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:10:02 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:10:02 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 01:10:02 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 01:10:07 DEBUG Client:1177 - closing ipc connection to 192.168.1.14/192.168.1.14:8020: Connection refused: no further information
+ java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:530)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:494)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:609)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:707)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:370)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1523)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1440)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1401)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy9.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:752)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy10.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:1977)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1118)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystem.exists(FileSystem.java:1400)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:45)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:10:07 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 01:10:07 DEBUG App:35 - java.net.ConnectException: Call From gdev-pk/192.168.1.5 to 192.168.1.14:8020 failed on connection exception: java.net.ConnectException: Connection refused: no further information; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+ 2018-02-14 01:10:07 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:10:07 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:10:07 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:10:07 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:14:43 INFO  App:13 - info message
+ 2018-02-14 01:14:43 INFO  HadoopSimple:24 - write_into_hdfs !!! 
+ 2018-02-14 01:14:43 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:14:43 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:14:43 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:14:43 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:14:43 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:14:43 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:14:43 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:14:43 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:14:43 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:14:43 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:14:43 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:14:43 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:14:44 DEBUG Shell:343 - Failed to detect a valid hadoop home directory
+ java.io.IOException: Hadoop home directory \user\hadoop does not exist, is not a directory, or is not an absolute path.
+	at org.apache.hadoop.util.Shell.checkHadoopHome(Shell.java:335)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:350)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:116)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:93)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:73)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:293)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:789)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:774)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:647)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2755)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2747)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2613)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:370)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:41)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:14:44 ERROR Shell:396 - Failed to locate the winutils binary in the hadoop binary path
+ java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
+	at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:378)
+	at org.apache.hadoop.util.Shell.getWinUtilsPath(Shell.java:393)
+	at org.apache.hadoop.util.Shell.<clinit>(Shell.java:386)
+	at org.apache.hadoop.util.StringUtils.<clinit>(StringUtils.java:79)
+	at org.apache.hadoop.security.Groups.parseStaticMapping(Groups.java:116)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:93)
+	at org.apache.hadoop.security.Groups.<init>(Groups.java:73)
+	at org.apache.hadoop.security.Groups.getUserToGroupsMappingService(Groups.java:293)
+	at org.apache.hadoop.security.UserGroupInformation.initialize(UserGroupInformation.java:283)
+	at org.apache.hadoop.security.UserGroupInformation.ensureInitialized(UserGroupInformation.java:260)
+	at org.apache.hadoop.security.UserGroupInformation.loginUserFromSubject(UserGroupInformation.java:789)
+	at org.apache.hadoop.security.UserGroupInformation.getLoginUser(UserGroupInformation.java:774)
+	at org.apache.hadoop.security.UserGroupInformation.getCurrentUser(UserGroupInformation.java:647)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2755)
+	at org.apache.hadoop.fs.FileSystem$Cache$Key.<init>(FileSystem.java:2747)
+	at org.apache.hadoop.fs.FileSystem$Cache.get(FileSystem.java:2613)
+	at org.apache.hadoop.fs.FileSystem.get(FileSystem.java:370)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:41)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:14:44 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:14:44 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:14:44 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:14:44 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:14:44 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:14:44 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:14:44 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:14:44 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:14:44 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:14:44 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:14:44 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:14:44 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:14:44 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@e056f20
+ 2018-02-14 01:14:44 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:14:44 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:14:44 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:14:44 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 01:14:44 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 01:14:50 DEBUG Client:1177 - closing ipc connection to 192.168.1.14/192.168.1.14:8020: Connection refused: no further information
+ java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:530)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:494)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:609)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:707)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:370)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1523)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1440)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1401)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy9.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:752)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy10.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:1977)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1118)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystem.exists(FileSystem.java:1400)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:45)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:14:50 DEBUG Client:1186 - IPC Client (2025269734) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 01:14:50 DEBUG App:35 - java.net.ConnectException: Call From gdev-pk/192.168.1.5 to 192.168.1.14:8020 failed on connection exception: java.net.ConnectException: Connection refused: no further information; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+ 2018-02-14 01:14:50 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:14:50 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:14:50 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@15eb5ee5
+ 2018-02-14 01:14:50 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:17:09 INFO  App:13 - info message
+ 2018-02-14 01:17:09 INFO  HadoopSimple:24 - write_into_hdfs !!! 
+ 2018-02-14 01:17:10 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:17:10 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:17:10 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:17:10 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:17:10 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:17:10 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:17:10 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:17:10 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:17:10 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:17:10 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:17:10 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:17:10 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:17:10 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:17:10 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:17:10 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:17:10 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:17:10 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:17:10 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:17:10 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:17:10 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:17:10 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:17:10 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:17:10 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:17:10 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:17:10 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 01:17:10 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:17:11 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:17:11 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:17:11 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 01:17:11 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 01:17:16 DEBUG Client:1177 - closing ipc connection to 192.168.1.14/192.168.1.14:8020: Connection refused: no further information
+ java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:530)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:494)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:609)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:707)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:370)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1523)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1440)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1401)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy9.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:752)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy10.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:1977)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1118)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystem.exists(FileSystem.java:1400)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:45)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:17:16 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 01:17:16 DEBUG App:35 - java.net.ConnectException: Call From gdev-pk/192.168.1.5 to 192.168.1.14:8020 failed on connection exception: java.net.ConnectException: Connection refused: no further information; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+ 2018-02-14 01:17:16 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:17:16 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:17:16 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:17:16 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:27:57 INFO  App:13 - info message
+ 2018-02-14 01:27:57 INFO  HadoopSimple:24 - write_into_hdfs !!! 
+ 2018-02-14 01:27:58 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(sampleName=Ops, about=, always=false, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:27:58 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(sampleName=Ops, about=, always=false, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:27:58 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(sampleName=Ops, about=, always=false, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:27:58 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:27:58 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:27:58 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:27:58 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:27:58 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:27:58 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:27:58 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:27:58 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:27:58 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:27:58 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:27:58 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:27:58 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:27:58 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:27:58 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:27:58 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:27:58 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:27:58 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:27:58 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:27:58 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:27:58 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:27:58 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:27:58 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 01:27:58 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:27:58 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:27:58 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:27:58 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 01:27:58 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 01:28:04 DEBUG Client:1177 - closing ipc connection to 192.168.1.14/192.168.1.14:8020: Connection refused: no further information
+ java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:530)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:494)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:609)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:707)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:370)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1523)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1440)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1401)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy9.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:752)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy10.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:1977)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1118)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystem.exists(FileSystem.java:1400)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:45)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:28:04 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 01:28:04 DEBUG App:35 - java.net.ConnectException: Call From gdev-pk/192.168.1.5 to 192.168.1.14:8020 failed on connection exception: java.net.ConnectException: Connection refused: no further information; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+ 2018-02-14 01:28:04 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:28:04 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:28:04 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:28:04 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:28:51 INFO  App:13 - info message
+ 2018-02-14 01:28:51 INFO  HadoopSimple:24 - write_into_hdfs !!! 
+ 2018-02-14 01:28:52 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:28:52 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:28:52 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, sampleName=Ops, always=false, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:28:52 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:28:52 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:28:52 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:28:52 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:28:52 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:28:52 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:28:52 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:28:52 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:28:52 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:28:52 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:28:52 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:28:52 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:28:52 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:28:52 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:28:52 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:28:52 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:28:52 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:28:52 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:28:52 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:28:52 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:28:52 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:28:52 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 01:28:52 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:28:53 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:28:53 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:28:53 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 01:28:53 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 01:28:58 DEBUG Client:1177 - closing ipc connection to 192.168.1.14/192.168.1.14:8020: Connection refused: no further information
+ java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:717)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:530)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:494)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:609)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:707)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:370)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1523)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1440)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1401)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:232)
+	at com.sun.proxy.$Proxy9.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getFileInfo(ClientNamenodeProtocolTranslatorPB.java:752)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy10.getFileInfo(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.getFileInfo(DFSClient.java:1977)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1118)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$18.doCall(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
+	at org.apache.hadoop.hdfs.DistributedFileSystem.getFileStatus(DistributedFileSystem.java:1114)
+	at org.apache.hadoop.fs.FileSystem.exists(FileSystem.java:1400)
+	at gdev.HadoopSimple.write_into_hdfs(HadoopSimple.java:44)
+	at gdev.App.main(App.java:31)
+2018-02-14 01:28:58 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 01:28:58 DEBUG App:35 - java.net.ConnectException: Call From gdev-pk/192.168.1.5 to 192.168.1.14:8020 failed on connection exception: java.net.ConnectException: Connection refused: no further information; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+ 2018-02-14 01:28:58 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:28:58 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:28:58 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:28:58 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:56:43 INFO  App:13 - info message
+ 2018-02-14 01:56:43 INFO  HadoopSimple:24 - write_into_hdfs !!! 
+ 2018-02-14 01:56:43 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(always=false, sampleName=Ops, about=, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:56:43 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(always=false, sampleName=Ops, about=, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 01:56:43 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(always=false, sampleName=Ops, about=, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 01:56:43 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 01:56:43 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 01:56:43 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 01:56:43 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 01:56:43 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 01:56:43 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 01:56:43 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 01:56:43 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 01:56:43 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 01:56:43 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 01:56:43 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 01:56:43 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 01:56:43 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 01:56:43 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 01:56:43 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 01:56:43 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 01:56:43 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 01:56:43 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 01:56:43 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 01:56:43 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 01:56:43 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 01:56:43 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 01:56:43 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:56:44 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 01:56:44 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 01:56:44 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 01:56:44 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 01:56:44 DEBUG Client:963 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: starting, having connections 1
+ 2018-02-14 01:56:44 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #0
+ 2018-02-14 01:56:44 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #0
+ 2018-02-14 01:56:44 DEBUG ProtobufRpcEngine:253 - Call: getFileInfo took 395ms
+ 2018-02-14 01:56:44 INFO  HadoopSimple:51 - Begin Write file into hdfs
+ 2018-02-14 01:56:44 DEBUG DFSClient:1646 - /user/hadoop/hello.csv: masked=rw-r--r--
+ 2018-02-14 01:56:44 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #1
+ 2018-02-14 01:56:44 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #1
+ 2018-02-14 01:56:44 DEBUG App:35 - org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create file/user/hadoop/hello.csv. Name node is in safe mode.
+The reported blocks 0 needs additional 19 blocks to reach the threshold 0.9990 of total blocks 20.
+The number of live datanodes 0 has reached the minimum number 0. Safe mode will be turned off automatically once the thresholds have been reached. NamenodeHostName:hadoop-master
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.newSafemodeException(FSNamesystem.java:1436)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1423)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.startFileInt(FSNamesystem.java:2312)
+	at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.startFile(FSNamesystem.java:2258)
+	at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.create(NameNodeRpcServer.java:763)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.create(ClientNamenodeProtocolServerSideTranslatorPB.java:450)
+	at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:523)
+	at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:991)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:869)
+	at org.apache.hadoop.ipc.Server$RpcCall.run(Server.java:815)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1962)
+	at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2675)
+
+ 2018-02-14 01:56:44 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:56:44 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:56:44 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 01:56:44 DEBUG Client:1236 - Stopping client
+ 2018-02-14 01:56:44 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 01:56:44 DEBUG Client:981 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: stopped, remaining connections 0
+ 2018-02-14 02:03:14 INFO  App:13 - info message
+ 2018-02-14 02:03:14 INFO  HadoopSimple:24 - write_into_hdfs !!! 
+ 2018-02-14 02:03:14 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginSuccess with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of successful kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 02:03:14 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.loginFailure with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[Rate of failed kerberos logins and latency (milliseconds)], valueName=Time)
+ 2018-02-14 02:03:14 DEBUG MutableMetricsFactory:42 - field org.apache.hadoop.metrics2.lib.MutableRate org.apache.hadoop.security.UserGroupInformation$UgiMetrics.getGroups with annotation @org.apache.hadoop.metrics2.annotation.Metric(about=, always=false, sampleName=Ops, type=DEFAULT, value=[GetGroups], valueName=Time)
+ 2018-02-14 02:03:14 DEBUG MetricsSystemImpl:231 - UgiMetrics, User and group related metrics
+ 2018-02-14 02:03:14 DEBUG KerberosName:88 - Kerberos krb5 configuration not found, setting default realm to empty
+ 2018-02-14 02:03:14 DEBUG Groups:291 -  Creating new Groups object
+ 2018-02-14 02:03:14 DEBUG NativeCodeLoader:46 - Trying to load the custom-built native-hadoop library...
+ 2018-02-14 02:03:14 DEBUG NativeCodeLoader:55 - Failed to load native-hadoop with error: java.lang.UnsatisfiedLinkError: no hadoop in java.library.path
+ 2018-02-14 02:03:14 DEBUG NativeCodeLoader:56 - java.library.path=C:\jdk1.8.0_161\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/jdk1.8.0_161/jre/bin/server;C:/jdk1.8.0_161/jre/bin;C:/jdk1.8.0_161/jre/lib/amd64;C:\jdk1.8.0_161\jre\bin;C:\instantclient_11_2\;E:\oracle\product\11.2.0\db_1\bin;E:\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\PuTTY\;C:\spark-2.2.1-bin-hadoop2.7\bin;C:\scala\bin;C:\instantclient_11_2\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gdev\AppData\Local\Programs\Python\Python36-32\;C:\Users\gdev\AppData\Local\GitHubDesktop\bin;C:\eclipse;;.
+ 2018-02-14 02:03:14 WARN  NativeCodeLoader:62 - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+ 2018-02-14 02:03:14 DEBUG PerformanceAdvisory:41 - Falling back to shell based
+ 2018-02-14 02:03:14 DEBUG JniBasedUnixGroupsMappingWithFallback:45 - Group mapping impl=org.apache.hadoop.security.ShellBasedUnixGroupsMapping
+ 2018-02-14 02:03:14 DEBUG Groups:103 - Group mapping impl=org.apache.hadoop.security.JniBasedUnixGroupsMappingWithFallback; cacheTimeout=300000; warningDeltaMs=5000
+ 2018-02-14 02:03:14 DEBUG UserGroupInformation:221 - hadoop login
+ 2018-02-14 02:03:14 DEBUG UserGroupInformation:156 - hadoop login commit
+ 2018-02-14 02:03:14 DEBUG UserGroupInformation:192 - Using user: "root" with name root
+ 2018-02-14 02:03:14 DEBUG UserGroupInformation:202 - User entry: "root"
+ 2018-02-14 02:03:14 DEBUG UserGroupInformation:825 - UGI loginUser:root (auth:SIMPLE)
+ 2018-02-14 02:03:14 DEBUG BlockReaderLocal:446 - dfs.client.use.legacy.blockreader.local = false
+ 2018-02-14 02:03:14 DEBUG BlockReaderLocal:449 - dfs.client.read.shortcircuit = false
+ 2018-02-14 02:03:14 DEBUG BlockReaderLocal:452 - dfs.client.domain.socket.data.traffic = false
+ 2018-02-14 02:03:14 DEBUG BlockReaderLocal:455 - dfs.domain.socket.path = 
+ 2018-02-14 02:03:15 DEBUG DFSClient:637 - No KeyProvider found.
+ 2018-02-14 02:03:15 DEBUG RetryUtils:74 - multipleLinearRandomRetry = null
+ 2018-02-14 02:03:15 DEBUG Server:233 - rpcKind=RPC_PROTOCOL_BUFFER, rpcRequestWrapperClass=class org.apache.hadoop.ipc.ProtobufRpcEngine$RpcRequestWrapper, rpcInvoker=org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker@2e4b8173
+ 2018-02-14 02:03:15 DEBUG Client:63 - getting client out of cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:03:15 DEBUG PerformanceAdvisory:110 - Both short-circuit local reads and UNIX domain socket are disabled.
+ 2018-02-14 02:03:15 DEBUG DataTransferSaslUtil:183 - DataTransferProtocol not using SaslPropertiesResolver, no QOP found in configuration for dfs.data.transfer.protection
+ 2018-02-14 02:03:15 DEBUG Client:429 - The ping interval is 60000 ms.
+ 2018-02-14 02:03:15 DEBUG Client:699 - Connecting to /192.168.1.14:8020
+ 2018-02-14 02:03:15 DEBUG Client:963 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: starting, having connections 1
+ 2018-02-14 02:03:15 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #0
+ 2018-02-14 02:03:15 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #0
+ 2018-02-14 02:03:15 DEBUG ProtobufRpcEngine:253 - Call: getFileInfo took 112ms
+ 2018-02-14 02:03:15 INFO  HadoopSimple:51 - Begin Write file into hdfs
+ 2018-02-14 02:03:15 DEBUG DFSClient:1646 - /user/hadoop/hello.csv: masked=rw-r--r--
+ 2018-02-14 02:03:15 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #1
+ 2018-02-14 02:03:15 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #1
+ 2018-02-14 02:03:15 DEBUG ProtobufRpcEngine:253 - Call: create took 16ms
+ 2018-02-14 02:03:15 DEBUG DFSClient:1802 - computePacketChunkSize: src=/user/hadoop/hello.csv, chunkSize=516, chunksPerPacket=127, packetSize=65532
+ 2018-02-14 02:03:15 DEBUG LeaseRenewer:301 - Lease renewer daemon for [DFSClient_NONMAPREDUCE_-84484924_1] with renew id 1 started
+ 2018-02-14 02:03:15 DEBUG DFSClient:1869 - DFSClient writeChunk allocating new packet seqno=0, src=/user/hadoop/hello.csv, packetSize=65532, chunksPerPacket=127, bytesCurBlock=0
+ 2018-02-14 02:03:15 DEBUG DFSClient:1815 - Queued packet 0
+ 2018-02-14 02:03:15 DEBUG DFSClient:1815 - Queued packet 1
+ 2018-02-14 02:03:15 DEBUG DFSClient:585 - Allocating new block
+ 2018-02-14 02:03:15 DEBUG DFSClient:2133 - Waiting for ack for: 1
+ 2018-02-14 02:03:15 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #2
+ 2018-02-14 02:03:15 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #2
+ 2018-02-14 02:03:15 DEBUG ProtobufRpcEngine:253 - Call: addBlock took 31ms
+ 2018-02-14 02:03:15 DEBUG DFSClient:1390 - pipeline = 192.168.1.16:9866
+ 2018-02-14 02:03:15 DEBUG DFSClient:1390 - pipeline = 192.168.1.15:9866
+ 2018-02-14 02:03:15 DEBUG DFSClient:1601 - Connecting to datanode 192.168.1.16:9866
+ 2018-02-14 02:03:15 DEBUG DFSClient:1610 - Send buf size 131072
+ 2018-02-14 02:03:15 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #3
+ 2018-02-14 02:03:15 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #3
+ 2018-02-14 02:03:15 DEBUG ProtobufRpcEngine:253 - Call: getServerDefaults took 14ms
+ 2018-02-14 02:03:15 DEBUG SaslDataTransferClient:244 - SASL client skipping handshake in unsecured configuration for addr = /192.168.1.16, datanodeId = 192.168.1.16:9866
+ 2018-02-14 02:03:16 DEBUG DFSClient:636 - DataStreamer block BP-87460605-192.168.1.14-1518549085107:blk_1073741850_1026 sending packet packet seqno:0 offsetInBlock:0 lastPacketInBlock:false lastByteOffsetInBlock: 11
+ 2018-02-14 02:03:16 DEBUG DFSClient:875 - DFSClient seqno: 0 status: SUCCESS status: SUCCESS downstreamAckTimeNanos: 14392595 4: "\000\000"
+ 2018-02-14 02:03:16 DEBUG DFSClient:636 - DataStreamer block BP-87460605-192.168.1.14-1518549085107:blk_1073741850_1026 sending packet packet seqno:1 offsetInBlock:11 lastPacketInBlock:true lastByteOffsetInBlock: 11
+ 2018-02-14 02:03:16 DEBUG DFSClient:875 - DFSClient seqno: 1 status: SUCCESS status: SUCCESS downstreamAckTimeNanos: 2734984 4: "\000\000"
+ 2018-02-14 02:03:16 DEBUG DFSClient:509 - Closing old block BP-87460605-192.168.1.14-1518549085107:blk_1073741850_1026
+ 2018-02-14 02:03:16 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #4
+ 2018-02-14 02:03:16 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #4
+ 2018-02-14 02:03:16 DEBUG ProtobufRpcEngine:253 - Call: complete took 11ms
+ 2018-02-14 02:03:16 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #5
+ 2018-02-14 02:03:16 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #5
+ 2018-02-14 02:03:16 DEBUG ProtobufRpcEngine:253 - Call: complete took 8ms
+ 2018-02-14 02:03:16 INFO  HadoopSimple:59 - End Write file into hdfs
+ 2018-02-14 02:03:16 INFO  HadoopSimple:62 - Read file into hdfs
+ 2018-02-14 02:03:16 DEBUG Client:1026 - IPC Client (715378067) connection to /192.168.1.14:8020 from root sending #6
+ 2018-02-14 02:03:16 DEBUG Client:1083 - IPC Client (715378067) connection to /192.168.1.14:8020 from root got value #6
+ 2018-02-14 02:03:16 DEBUG ProtobufRpcEngine:253 - Call: getBlockLocations took 35ms
+ 2018-02-14 02:03:16 DEBUG DFSClient:277 - newInfo = LocatedBlocks{
+  fileLength=11
+  underConstruction=false
+  blocks=[LocatedBlock{BP-87460605-192.168.1.14-1518549085107:blk_1073741850_1026; getBlockSize()=11; corrupt=false; offset=0; locs=[192.168.1.15:9866, 192.168.1.16:9866]; storageIDs=[DS-02547298-0318-4c82-b6b4-584b413658d0, DS-1e13ec63-8821-470d-8a85-ccc0478f012e]; storageTypes=[DISK, DISK]}]
+  lastLocatedBlock=LocatedBlock{BP-87460605-192.168.1.14-1518549085107:blk_1073741850_1026; getBlockSize()=11; corrupt=false; offset=0; locs=[192.168.1.16:9866, 192.168.1.15:9866]; storageIDs=[DS-1e13ec63-8821-470d-8a85-ccc0478f012e, DS-02547298-0318-4c82-b6b4-584b413658d0]; storageTypes=[DISK, DISK]}
+  isLastBlockComplete=true}
+ 2018-02-14 02:03:16 DEBUG DFSClient:1002 - Connecting to datanode 192.168.1.15:9866
+ 2018-02-14 02:03:16 DEBUG SaslDataTransferClient:244 - SASL client skipping handshake in unsecured configuration for addr = /192.168.1.15, datanodeId = 192.168.1.15:9866
+ 2018-02-14 02:03:17 INFO  HadoopSimple:69 - hello;world
+ 2018-02-14 02:03:17 DEBUG Client:97 - stopping client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:03:17 DEBUG Client:103 - removing client from cache: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:03:17 DEBUG Client:110 - stopping actual client because no more references remain: org.apache.hadoop.ipc.Client@3911c2a7
+ 2018-02-14 02:03:17 DEBUG Client:1236 - Stopping client
+ 2018-02-14 02:03:17 DEBUG Client:1186 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: closed
+ 2018-02-14 02:03:17 DEBUG Client:981 - IPC Client (715378067) connection to /192.168.1.14:8020 from root: stopped, remaining connections 0
+ 

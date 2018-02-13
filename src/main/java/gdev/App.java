@@ -1,5 +1,7 @@
 package gdev;
 
+import java.io.IOException;
+
 import org.apache.log4j.Logger;
  
 
@@ -10,7 +12,7 @@ public class App {
 	public static void main(String[] args) {
 		logger.info("info message");
 
-		SparkPostgre sp = new SparkPostgre();
+		//SparkPostgre sp = new SparkPostgre();
 		
 		//win
 		/*
@@ -19,12 +21,21 @@ public class App {
 		*/
 		//lnx
 		
-		String spark_url = "spark://192.168.1.8:7077";
-		String data_path = "/root/data";
-		
-		
+		//String spark_url = "spark://192.168.1.8:7077";
+		//String data_path = "/root/data";
 
-		sp.run(spark_url,data_path);
+		//sp.run(spark_url,data_path);
+		
+		HadoopSimple hs = new HadoopSimple();
+		try {
+			hs.write_into_hdfs();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+			logger.debug(e.fillInStackTrace());
+		}
+		
+		
  
 		}
 
