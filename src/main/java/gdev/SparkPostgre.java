@@ -35,7 +35,7 @@ public class SparkPostgre {
 		
 		//pp.load_table_into_pqrquet("sl_report_data", data_path, spark);
 	    //pp.execute_sql_query(spark);
-	       pp.execute_sql_query2(spark);
+	    //pp.execute_sql_query2(spark);
 	    //pp.show_spark_meta(spark);
 
 //jdbcDF.select("code").write().mode(SaveMode.Overwrite).parquet(parquetPath);
