@@ -5,17 +5,16 @@ import static org.apache.parquet.schema.OriginalType.UTF8;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.BINARY;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.INT64;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.net.URI;
+
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataOutputStream;
-import org.apache.hadoop.fs.FileSystem;
+
 import org.apache.hadoop.fs.Path;
 import org.apache.log4j.Logger;
-import org.apache.parquet.Preconditions;
+
 import org.apache.parquet.example.data.Group;
 import org.apache.parquet.example.data.simple.SimpleGroupFactory;
 import org.apache.parquet.hadoop.ParquetWriter;
@@ -23,17 +22,15 @@ import org.apache.parquet.hadoop.example.ExampleParquetWriter;
 import org.apache.parquet.schema.MessageType;
 import org.apache.parquet.schema.Types;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
 
 public class WriteParquetMR {
 	
 	final static Logger logger = Logger.getLogger(WriteParquetMR.class);
 	
 	void write_simple() throws Exception {
-
-		String hdfsuri = "hdfs://192.168.1.14:8020";
+ 
+		String hdfsuri = "hdfs://10.242.5.88:9000"; // "hdfs://192.168.1.14:8020";
 		String path = "/user/data/";
 	    String fileName = "cam_car.parquet";
 	
@@ -47,7 +44,7 @@ public class WriteParquetMR {
 
 		  	    Configuration conf = new Configuration();
 		  	    
-		  	    System.setProperty("HADOOP_USER_NAME", "root");
+		  	    System.setProperty("HADOOP_USER_NAME", "hadoop"); //root
 
 			    Path hdfswritepath = new Path(hdfsuri+path + fileName);
 			    ParquetWriter<Group> cc_writer = ExampleParquetWriter.builder(hdfswritepath)
@@ -55,7 +52,7 @@ public class WriteParquetMR {
 			        .build();
 			    
 			    Long start_ts = (long) 1505407820; 
-			    for (int i=0;i<100000;i++){
+			    for (int i=0;i<100;i++){
 			    	Group group_cc = GROUP_FACTORY_CAM_CAR_SNAP.newGroup(); 
 			    	start_ts = start_ts+1;
 			    	String car_num = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
