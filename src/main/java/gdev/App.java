@@ -13,7 +13,7 @@ public class App {
 	final static Logger logger = Logger.getLogger(App.class);
 	
 	public static void main(String[] args) {
-		logger.info("info message");
+		logger.info("Begin main[] .......");
 
 		//SparkPostgre sp = new SparkPostgre();
 		
@@ -47,29 +47,10 @@ public class App {
 			logger.debug(e.fillInStackTrace());
 		}
 		
-		
+		logger.info("End main[] .......");
  
 		}
 
-	/*
-	 * public void debug_ds(
-            String apploaded_prq_fpath
-           ){
-		SparkSession spark = SparkSession.builder()
-				.appName("Java Spark SQL basic example")
-				.config("spark.master", "local[*]")
-				.config("spark.sql.crossJoin.enabled", "true").getOrCreate();
 
-		Dataset<Row> sqlLoadedDF = spark.read().load(apploaded_prq_fpath);
-
-		sqlLoadedDF.createOrReplaceTempView("v_aload");
-
-		Dataset<Row> usrs_CntApplod_WeekReg = spark
-				.sql("SELECT v_aload.time,  current_timestamp as cts, datediff(current_timestamp,v_aload.time) as dd, date_add(v_aload.time,7) as t7 FROM v_aload ");
-
-		usrs_CntApplod_WeekReg.show();     
-}
-	
-	 * */
 
 }
