@@ -37,14 +37,14 @@ public class App {
 			logger.debug(e.fillInStackTrace());
 		}
 		
-		*/
+		*/ 
 		
 		WriteParquetMR wp = new WriteParquetMR();
 		
 		try {
 			wp.write_simple();
 		} catch (Exception e) {
-			logger.debug(e.fillInStackTrace());
+			logger.warn(e.fillInStackTrace());
 		}
 		
 		logger.info("End main[] .......");
