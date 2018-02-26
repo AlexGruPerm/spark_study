@@ -2,7 +2,6 @@ package gdev;
 
 import org.apache.log4j.Logger;
 import org.apache.parquet.Log;
-import org.apache.parquet.example.data.simple.NanoTime;
 import org.apache.parquet.io.api.Binary;
 import org.apache.parquet.io.api.RecordConsumer;
 
@@ -33,9 +32,7 @@ abstract public class Group extends GroupValueSource {
     add(getType().getFieldIndex(field), value);
   }
 
-  public void add(String field, NanoTime value) {
-    add(getType().getFieldIndex(field), value);
-  }
+
 
   public void add(String field, boolean value) {
     add(getType().getFieldIndex(field), value);
@@ -66,7 +63,6 @@ abstract public class Group extends GroupValueSource {
 
   abstract public void add(int fieldIndex, boolean value);
 
-  abstract public void add(int fieldIndex, NanoTime value);
 
   abstract public void add(int fieldIndex, Binary value);
 
@@ -104,10 +100,6 @@ abstract public class Group extends GroupValueSource {
     return this;
   }
 
-  public Group append(String fieldName, NanoTime value) {
-    add(fieldName, value);
-    return this;
-  }
 
   public Group append(String fieldName, String value) {
     add(fieldName, Binary.fromString(value));

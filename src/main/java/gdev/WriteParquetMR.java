@@ -14,8 +14,6 @@ import org.apache.log4j.Logger;
 import org.apache.parquet.example.data.Group;
 import org.apache.parquet.example.data.simple.SimpleGroupFactory;
 import org.apache.parquet.hadoop.ParquetWriter;
-import org.apache.parquet.hadoop.ParquetWriter.Builder;
-import org.apache.parquet.hadoop.example.ExampleParquetWriter;
 import org.apache.parquet.hadoop.metadata.CompressionCodecName;
 import org.apache.parquet.schema.MessageType;
 import org.apache.parquet.schema.Types;
@@ -51,6 +49,7 @@ public class WriteParquetMR {
 			    ParquetWriter<Group> cc_writer = GdevParquetWriter.builder(hdfswritepath)
 				        .withType(CAM_CAR_SNAP_FILE_SCHEMA)
 				        .withCompressionCodec(CompressionCodecName.SNAPPY)
+				        .withDictionaryEncoding(true)
 				        .build();
 
 			    Long start_ts = (long) 1505407820; 
