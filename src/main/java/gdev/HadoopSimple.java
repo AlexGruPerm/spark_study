@@ -22,21 +22,21 @@ public class HadoopSimple {
 	
 	void write_into_hdfs() throws IOException{
 
-		String hdfsuri = "hdfs://192.168.1.14:8020";
+		String hdfsuri = "hdfs://10.242.5.88:9000";
 		String path = "/user/data/";
-	    String fileName = "hello_20022018.csv";
-	    String fileContent = "hello;world";
-		
+	    String fileName = "check_rep_2.csv";
+	    String fileContent = "hello;world;hello;world;hello;world;hello;world;hello;world;hello;world;hello;world;hello;world;";
+
 		Configuration conf = new Configuration();
 
 	      // Set FileSystem URI
 	      conf.set("fs.defaultFS", hdfsuri);
 		
-		  System.setProperty("HADOOP_USER_NAME", "root");
+		  System.setProperty("HADOOP_USER_NAME", "hadoop");//root
 	      
-	      //Get the filesystem - HDFS
 	      FileSystem fs = FileSystem.get(URI.create(hdfsuri), conf);
 		
+	      
 	      Path workingDir=fs.getWorkingDirectory();
 	      Path newFolderPath= new Path(path);
 	      if(!fs.exists(newFolderPath)) {

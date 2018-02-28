@@ -3,11 +3,7 @@ package gdev;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
-import org.apache.spark.sql.Dataset;
-import org.apache.spark.sql.Row;
-import org.apache.spark.sql.SparkSession;
  
-
 public class App {
 
 	final static Logger logger = Logger.getLogger(App.class);
@@ -16,7 +12,7 @@ public class App {
 		logger.info("Begin main[] .......");
 
 		//SparkPostgre sp = new SparkPostgre();
-		
+		 
 		//win
 		/*
 		String spark_url = "spark://192.168.1.5:7077";
@@ -28,7 +24,7 @@ public class App {
 		//String data_path = "/root/data";
 
 		//sp.run(spark_url,data_path);
-		
+		 
 		/*
 		HadoopSimple hs = new HadoopSimple();
 		try {
@@ -36,19 +32,18 @@ public class App {
 		} catch (IOException e) {
 			logger.debug(e.fillInStackTrace());
 		}
-		
-		*/ 
-		
+		*/
+
 		WriteParquetMR wp = new WriteParquetMR();
-		
 		try {
 			wp.write_simple();
 		} catch (Exception e) {
 			logger.warn(e.fillInStackTrace());
 		}
 		
+		
+		
 		logger.info("End main[] .......");
- 
 		}
 
 

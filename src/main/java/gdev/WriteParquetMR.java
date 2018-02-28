@@ -9,10 +9,12 @@ import java.io.IOException;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.log4j.Logger;
 import org.apache.parquet.example.data.Group;
 import org.apache.parquet.example.data.simple.SimpleGroupFactory;
+import org.apache.parquet.hadoop.ParquetFileWriter;
 import org.apache.parquet.hadoop.ParquetWriter;
 import org.apache.parquet.hadoop.metadata.CompressionCodecName;
 import org.apache.parquet.schema.MessageType;
@@ -30,7 +32,7 @@ public class WriteParquetMR {
  
 		String hdfsuri = "hdfs://10.242.5.88:9000"; // "hdfs://192.168.1.14:8020";
 		String path = "/user/data/";
-	    String fileName = "cam_car.parquet";
+	    String fileName = "cam_car2.parquet";
 
 		 try{
 		  	    MessageType CAM_CAR_SNAP_FILE_SCHEMA = Types.buildMessage()
@@ -45,16 +47,22 @@ public class WriteParquetMR {
 		  	    System.setProperty("HADOOP_USER_NAME", "hadoop"); //root
 
 			    Path hdfswritepath = new Path(hdfsuri + path + fileName);
+ 
+			    conf.set("dfs.blocksize", "67108864");
+			    conf.set("dfs.replication", "2");
 
 			    ParquetWriter<Group> cc_writer = GdevParquetWriter.builder(hdfswritepath)
 				        .withType(CAM_CAR_SNAP_FILE_SCHEMA)
-				        .withCompressionCodec(CompressionCodecName.SNAPPY)
-				        .withDictionaryEncoding(true)
+				        .withCompressionCodec(CompressionCodecName.UNCOMPRESSED)  
+				        .withDictionaryEncoding(false)
+				        .withWriteMode(ParquetFileWriter.Mode.OVERWRITE)
+				        .withRowGroupSize(67108864)
+				        .withConf(conf)
 				        .build();
 
 			    Long start_ts = (long) 1505407820; 
 			    logger.info(" Begin write parquet");
-			    for (Long i=(long) 0; i<100/*1000000000*/; i++){
+			    for (Long i=(long)0; i<1000L/*1000000000L*/; i++){
 			    	Group group_cc = GROUP_FACTORY_CAM_CAR_SNAP.newGroup(); 
 			    	start_ts = start_ts+1;
 			    	String car_num = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
