@@ -11,6 +11,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.mapred.TextOutputFormat;
 import org.apache.log4j.Logger;
 import org.apache.parquet.example.data.Group;
 import org.apache.parquet.example.data.simple.SimpleGroupFactory;
@@ -62,7 +63,7 @@ public class WriteParquetMR {
 
 			    Long start_ts = (long) 1505407820; 
 			    logger.info(" Begin write parquet");
-			    for (Long i=(long)0; i<1000L/*1000000000L*/; i++){
+			    for (Long i=(long)0; i<10000L/*1000000000L*/; i++){
 			    	Group group_cc = GROUP_FACTORY_CAM_CAR_SNAP.newGroup(); 
 			    	start_ts = start_ts+1;
 			    	String car_num = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
@@ -102,7 +103,5 @@ public class WriteParquetMR {
 		
 		logger.info(" <<< debug_ds ");
 }
-	
-
 
 }

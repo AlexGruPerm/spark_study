@@ -26,6 +26,7 @@ public class App {
 		//sp.run(spark_url,data_path);
 		 
 		/*
+		 * 111
 		HadoopSimple hs = new HadoopSimple();
 		try {
 			hs.write_into_hdfs();
@@ -34,15 +35,23 @@ public class App {
 		}
 		*/
 
+		/* 222
 		WriteParquetMR wp = new WriteParquetMR();
 		try {
 			wp.write_simple();
 		} catch (Exception e) {
 			logger.warn(e.fillInStackTrace());
 		}
+		*/
 		
-		
-		
+		MultipleMR mmr = new MultipleMR();
+		try {
+			mmr.run(args);
+			// INFO  org.apache.hadoop.conf.Configuration.deprecation  - session.id is deprecated. Instead, use dfs.metrics.session-id
+		} catch (Exception e) {
+			logger.warn(e.fillInStackTrace());
+		}
+
 		logger.info("End main[] .......");
 		}
 
