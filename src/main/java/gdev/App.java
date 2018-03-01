@@ -25,11 +25,11 @@ public class App {
 
 		//sp.run(spark_url,data_path);
 		 
-		/*
+		/* 
 		 * 111
 		HadoopSimple hs = new HadoopSimple();
 		try {
-			hs.write_into_hdfs();
+			hs.write_into_hdfs(); 
 		} catch (IOException e) {
 			logger.debug(e.fillInStackTrace());
 		}
@@ -44,6 +44,7 @@ public class App {
 		}
 		*/
 		
+		/*
 		MultipleMR mmr = new MultipleMR();
 		try {
 			mmr.run(args);
@@ -51,6 +52,10 @@ public class App {
 		} catch (Exception e) {
 			logger.warn(e.fillInStackTrace());
 		}
+		*/
+		
+		CheckHive ch = new CheckHive();
+		ch.run();
 
 		logger.info("End main[] .......");
 		}
