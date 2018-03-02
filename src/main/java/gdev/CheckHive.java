@@ -28,30 +28,33 @@ public class CheckHive {
 		    }
 		
 		Connection con;
-		
+		 
 		try { 
-			con = DriverManager.getConnection("jdbc:hive2://10.242.5.88:9084/default", "", "");//9084
-			//con = DriverManager.getConnection("jdbc:hive://10.242.5.88:9084/default", "", "");
-		//Connection cnct = DriverManager.getConnection("jdbc:hive2://<host>:<port>", "<user>", "<password>");
+			con = DriverManager.getConnection("jdbc:hive2://10.242.5.88:10000/default", "", "");//9084
 	    Statement stmt = con.createStatement();
-	    String tableName = "testHiveDriverTable";
-	    stmt.executeQuery("drop table " + tableName);
-	    ResultSet res = stmt.executeQuery("create table " + tableName + " (key int, value string)");
+	    String tableName = "test";
+	    //stmt.executeQuery("drop table " + tableName);
+	    //ResultSet res = stmt.executeQuery("create table " + tableName + " (key int, value string)");
 	    // show tables
-	    String sql = "show tables '" + tableName + "'";
-	    System.out.println("Running: " + sql);
-	    res = stmt.executeQuery(sql);
-	     if (res.next()) {
-	      logger.info(">>> " + res.getString(1));
-	     }
+	    ResultSet res = stmt.executeQuery("select * from "+tableName);
+	    //String sql = "show tables '" + tableName + "'";
+	    //System.out.println("Running: " + sql);
+	    //res = stmt.executeQuery(sql);
 	    
-	    // describe table
-	    sql = "describe " + tableName;
+	      logger.info("---------------------------------------------------");
+	     while (res.next()) {
+	      logger.info(res.getString(1)+"  "+ res.getString(2)+"  "+ res.getString(3));
+	     }
+	      logger.info("---------------------------------------------------");
+	    
+        /*
+	    String sql = "describe " + tableName;
 	    System.out.println("Running: " + sql);
 	    res = stmt.executeQuery(sql);
 	     while (res.next()) {
 	      logger.info("---> " + res.getString(1) + "\t" + res.getString(2));
 	     }
+	    */ 
 	    
 		} catch (SQLException e) {
 			logger.warn(e.fillInStackTrace());
