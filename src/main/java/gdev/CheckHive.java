@@ -15,6 +15,16 @@ public class CheckHive {
 	
 	private static String driverName = "org.apache.hive.jdbc.HiveDriver";
 	
+	/*
+	#1
+	Create hive table with parquet basic,
+	CREATE TABLE prq1 (time TIMESTAMP,carnum string) STORED AS PARQUET LOCATION '/user/data/prq3_hive.parquet'; 
+	
+	#2
+	CREATE TABLE avro_cc2 ROW FORMAT SERDE 'org.apache.hadoop.hive.serde2.avro.AvroSerDe' STORED AS AVRO TBLPROPERTIES ('avro.schema.url'='hdfs://10.242.5.88:9000/user/data/cam_car2.parquet'); 
+
+    CREATE EXTERNAL TABLE parquet_test LIKE avro_test STORED AS PARQUET LOCATION 'hdfs://myParquetFilesPath';
+	*/
 	
 	public CheckHive(){
 	}

@@ -34,15 +34,15 @@ public class App {
 			logger.debug(e.fillInStackTrace());
 		}
 		*/
-
-		/* 222
+ 
+	
 		WriteParquetMR wp = new WriteParquetMR();
 		try {
 			wp.write_simple();
 		} catch (Exception e) {
 			logger.warn(e.fillInStackTrace());
 		}
-		*/
+
 		
 		/*
 		MultipleMR mmr = new MultipleMR();
@@ -54,8 +54,10 @@ public class App {
 		}
 		*/
 		
+		/*
 		CheckHive ch = new CheckHive();
 		ch.run();
+		*/
 
 		logger.info("End main[] .......");
 		}
