@@ -1,9 +1,12 @@
 package gdev;
 
 import static org.apache.parquet.schema.OriginalType.TIMESTAMP_MILLIS;
+import static org.apache.parquet.schema.OriginalType.TIMESTAMP_MICROS;
 import static org.apache.parquet.schema.OriginalType.UTF8;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.BINARY;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.INT64;
+import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.INT96;
+
 
 import java.io.IOException;
 
@@ -33,12 +36,11 @@ public class WriteParquetMR {
  
 		String hdfsuri = "hdfs://10.242.5.88:9000"; // "hdfs://192.168.1.14:8020";
 		String path = "/user/data/";
-	    String fileName = "cam_car2.parquet";
+	    String fileName = "cc503.parquet/part1";
 
-/*
 		 try{
 		  	    MessageType CAM_CAR_SNAP_FILE_SCHEMA = Types.buildMessage()
-		  		      .required(INT64).as(TIMESTAMP_MILLIS).named("time") // INT64
+		  		      .required(INT64).as(TIMESTAMP_MILLIS).named("ctime") // TIMESTAMP_MILLIS - INT64
 		  		      .required(BINARY).as(UTF8).named("carnum")
 		  		      .named("cam_car");
 
@@ -64,11 +66,11 @@ public class WriteParquetMR {
 
 			    Long start_ts = (long) 1505407820; 
 			    logger.info(" Begin write parquet");
-			    for (Long i=(long)0; i<100000L; i++){ --1000000000L
+			    for (Long i=(long)0; i<1000L; i++){ //1000000000L
 			    	Group group_cc = GROUP_FACTORY_CAM_CAR_SNAP.newGroup(); 
 			    	start_ts = start_ts+1;
 			    	String car_num = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
-			    	group_cc.add("time",    start_ts*1000);
+			    	group_cc.add("ctime",   start_ts); // !!! *1000 !!!
 			    	group_cc.add("carnum",  car_num   );
         		    cc_writer.write(group_cc);	
 			    }
@@ -77,7 +79,7 @@ public class WriteParquetMR {
 		    } catch (IOException e) {
 				logger.warn(e.fillInStackTrace());
 			}
-*/
+
 		 
 	// Show data with Spark SQL	 
 		 debug_ds(hdfsuri + path + fileName);
@@ -100,7 +102,7 @@ public class WriteParquetMR {
 */
 		//Dataset<Row> usrs_CntApplod_WeekReg = spark.sql("SELECT min(time) as begin_dt, max(time) as end_dt, count(*) as CNT FROM v_cc ");
 
-		Dataset<Row> usrs_CntApplod_WeekReg = spark.sql("SELECT count(*) as cnt FROM v_cc "); 
+		Dataset<Row> usrs_CntApplod_WeekReg = spark.sql("SELECT * FROM v_cc "); 
 		
 		usrs_CntApplod_WeekReg.show();  
 		

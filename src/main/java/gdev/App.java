@@ -42,7 +42,7 @@ public class App {
 		} catch (Exception e) {
 			logger.warn(e.fillInStackTrace());
 		}
-
+   
 		
 		/*
 		MultipleMR mmr = new MultipleMR();
