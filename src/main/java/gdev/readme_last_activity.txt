@@ -1,4 +1,4 @@
--- 05.03.2018
+-- 06.03.2018
 
 drop table hive_cc1;
 
@@ -11,24 +11,26 @@ drop table hive_cc1;
      
 select * from hive_cc1
 
-insert into hive_cc1 select unix_timestamp(),'r345mr'
 select ctime,cast(ctime as timestamp),carnum from hive_cc1
 
+/*
+insert into hive_cc1 select 1520323416,'0'
+select ctime,cast(ctime/1000 as timestamp),carnum from hive_cc1
+*/
 
-select unix_timestamp_ms()
+/*
+Correct java code
 
+		  	    MessageType CAM_CAR_SNAP_FILE_SCHEMA = Types.buildMessage()
+			  		      .optional(INT64).as(TIMESTAMP_MILLIS).named("ctime")
+			  		      .optional(BINARY).as(UTF8).named("carnum")
+			  		      .named("cam_car");
+...
+  Long start_ts = (long) 1520318907;
+...
+group_cc.add("ctime",   start_ts); // !!! *1000 !!!
 
-
-ctime               |carnum |
---------------------|-------|
-2018-03-05 18:51:37 |r345mr |
-
-$ hadoop jar  parquet-tools-1.9.0.jar schema hdfs://10.242.5.88:9000/user/data/cc503.parquet
-
-message hive_schema {
-  optional double ctime;
-  optional binary carnum (UTF8);
-}
+*/
 
 Java insert into 
 	    String hdfsuri = "hdfs://10.242.5.88:9000"; // "hdfs://192.168.1.14:8020";

@@ -3,7 +3,11 @@ package gdev;
 import static org.apache.parquet.schema.OriginalType.TIMESTAMP_MILLIS;
 import static org.apache.parquet.schema.OriginalType.TIMESTAMP_MICROS;
 import static org.apache.parquet.schema.OriginalType.UTF8;
+import static org.apache.parquet.schema.OriginalType.DECIMAL;
+import static org.apache.parquet.schema.OriginalType.INT_64;
+
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.BINARY;
+import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.INT32;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.INT64;
 import static org.apache.parquet.schema.PrimitiveType.PrimitiveTypeName.INT96;
 
@@ -36,13 +40,19 @@ public class WriteParquetMR {
  
 		String hdfsuri = "hdfs://10.242.5.88:9000"; // "hdfs://192.168.1.14:8020";
 		String path = "/user/data/";
-	    String fileName = "cc503.parquet/part1";
+	    String fileName = "cc503.parquet/part3";
 
 		 try{
 		  	    MessageType CAM_CAR_SNAP_FILE_SCHEMA = Types.buildMessage()
-		  		      .required(INT64).as(TIMESTAMP_MILLIS).named("ctime") // TIMESTAMP_MILLIS - INT64
+			  		      .optional(INT64).as(TIMESTAMP_MILLIS).named("ctime") //.precision(3)  //  .as(INT_64).as(TIMESTAMP_MILLIS)
+			  		      .optional(BINARY).as(UTF8).named("carnum")
+			  		      .named("cam_car");
+			   /*
+			    MessageType CAM_CAR_SNAP_FILE_SCHEMA = Types.buildMessage()
+		  		      .required(INT64).as(TIMESTAMP_MILLIS).named("ctime") 
 		  		      .required(BINARY).as(UTF8).named("carnum")
 		  		      .named("cam_car");
+		  	    */
 
 		  	    SimpleGroupFactory GROUP_FACTORY_CAM_CAR_SNAP = new SimpleGroupFactory(CAM_CAR_SNAP_FILE_SCHEMA);
 
@@ -64,15 +74,26 @@ public class WriteParquetMR {
 				        .withConf(conf)
 				        .build();
 
-			    Long start_ts = (long) 1505407820; 
+			    Long start_ts = (long) 1520378775;//1520318907;
+
+			    //Integer start_ts = 1520318907;
+
 			    logger.info(" Begin write parquet");
-			    for (Long i=(long)0; i<1000L; i++){ //1000000000L
+			    for (Long i=(long)0; i < 100000L; i++){ //1000000000L
 			    	Group group_cc = GROUP_FACTORY_CAM_CAR_SNAP.newGroup(); 
-			    	start_ts = start_ts+1;
-			    	String car_num = RandomStringUtils.randomAlphanumeric(4).toUpperCase();
+			    	
+			    	if (Integer.valueOf(RandomStringUtils.randomNumeric(1)) <=5 ) {
+			    	 start_ts = start_ts + 1;
+			    	} //else nothing
+			    	
+			    	String car_num = RandomStringUtils.randomAlphabetic(1).toLowerCase()+
+			    			         RandomStringUtils.randomNumeric(3)+
+			    			         RandomStringUtils.randomAlphabetic(2).toLowerCase()+
+			    			         "159";
+			    			//RandomStringUtils.randomAlphanumeric(4).toUpperCase();
 			    	group_cc.add("ctime",   start_ts); // !!! *1000 !!!
 			    	group_cc.add("carnum",  car_num   );
-        		    cc_writer.write(group_cc);	
+        		    cc_writer.write(group_cc);	 
 			    }
 			    cc_writer.close(); 
 			    logger.info(" End write parquet");
@@ -82,7 +103,7 @@ public class WriteParquetMR {
 
 		 
 	// Show data with Spark SQL	 
-		 debug_ds(hdfsuri + path + fileName);
+		debug_ds(hdfsuri + path + fileName);
 	
 	}
 	
