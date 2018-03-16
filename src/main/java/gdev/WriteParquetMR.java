@@ -40,7 +40,7 @@ public class WriteParquetMR {
  
 		String hdfsuri = "hdfs://10.242.5.88:9000"; // "hdfs://192.168.1.14:8020";
 		String path = "/user/data/";
-	    String fileName = "cc503.parquet/part3";
+	    String fileName = "cc503.parquet/part5";
 
 		 try{
 		  	    MessageType CAM_CAR_SNAP_FILE_SCHEMA = Types.buildMessage()
@@ -62,15 +62,15 @@ public class WriteParquetMR {
 
 			    Path hdfswritepath = new Path(hdfsuri + path + fileName);
  
-			    conf.set("dfs.blocksize", "67108864");
-			    conf.set("dfs.replication", "2");
+			    conf.set("dfs.blocksize", "33554432"); //67108864");
+			    conf.set("dfs.replication", "2"); 
 
 			    ParquetWriter<Group> cc_writer = GdevParquetWriter.builder(hdfswritepath)
 				        .withType(CAM_CAR_SNAP_FILE_SCHEMA)
-				        .withCompressionCodec(CompressionCodecName.UNCOMPRESSED)  
+				        .withCompressionCodec(CompressionCodecName.SNAPPY)  
 				        .withDictionaryEncoding(false)
 				        .withWriteMode(ParquetFileWriter.Mode.OVERWRITE)
-				        .withRowGroupSize(67108864)
+				        .withRowGroupSize(33554432)//67108864
 				        .withConf(conf)
 				        .build();
 
