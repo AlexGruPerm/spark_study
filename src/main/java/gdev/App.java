@@ -14,10 +14,10 @@ public class App {
 		//SparkPostgre sp = new SparkPostgre();
 		 
 		//win
-		/*
-		String spark_url = "spark://192.168.1.5:7077";
+		
+		String spark_url = "local[*]";  //"spark://192.168.1.5:7077";
 		String data_path = "C:\\spark_data";
-		*/
+		
 		//lnx
 		
 		//String spark_url = "spark://192.168.1.8:7077";
@@ -34,14 +34,22 @@ public class App {
 			logger.debug(e.fillInStackTrace());
 		}
 		*/
+		
+		JsonHiveParquet jhp =new JsonHiveParquet();
+		try {
+			jhp.run(spark_url, data_path);
+		} catch (Exception e) {
+			logger.debug("Exception: JsonHiveParquet : ------- "+e.fillInStackTrace());
+		}
  
-	
+	    /*
 		WriteParquetMR wp = new WriteParquetMR();
 		try {
 			wp.write_simple();
 		} catch (Exception e) {
 			logger.warn(e.fillInStackTrace());
 		}
+		*/
    
 		
 		/*
