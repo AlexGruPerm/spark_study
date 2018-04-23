@@ -38,14 +38,16 @@ public class JsonHiveParquet {
 		logger.info(">>>>>>>>>>>>>>>>>> After Spark session >>>");
 		
 		/*
-		 spark.sql("CREATE TABLE IF NOT EXISTS src(json string) USING hive");
+		 spark.sql("CREATE TABLE src(json string) USING hive");
 		 spark.sql("LOAD DATA INPATH 'C:\\spark_data\\events.json' INTO TABLE src");
 		 spark.sql("SELECT * FROM src").show();
 		 */
+	
+	
 		
 		spark.sql("SELECT * FROM default.d_bkk_dist").show();
 		
-		//spark.sql("select * from ext_tabs.stocks").show();
+
 
 		logger.info(">>>>>>>>>>>>>>>>>> After Select HPT >>>");
 
